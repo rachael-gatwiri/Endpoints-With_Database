@@ -35,8 +35,8 @@ const createNotebook = async(req, res)=>{
     }
 }
 
-// GET method
-const getnotebooks = async(req, res)=>{
+
+const getAllNoteBook = async(req, res)=>{
     try {
         res.json({notebooks: notebooks})
     } catch (error) {
@@ -44,7 +44,6 @@ const getnotebooks = async(req, res)=>{
     }
 }
 
-//getting one project
 const getSingleNoteBook = async(req, res)=>{
     try {
         const id = req.params.id
@@ -62,7 +61,7 @@ const getSingleNoteBook = async(req, res)=>{
 }
 
 
-//Update Method
+
 const updateNoteBook = async(req, res)=>{
     try {
         const id = req.params.id
@@ -87,8 +86,8 @@ const updateNoteBook = async(req, res)=>{
 }
 
 
-//Delete Method
-const deleteProject = async (req, res)=>{
+
+const deleteNoteBook = async (req, res)=>{
     try {
        const id = req.params.id
 
@@ -114,8 +113,8 @@ const deleteProject = async (req, res)=>{
 //Exports
 module.exports ={
     createNotebook,
-    getnotebooks,
+    getAllNoteBook,
     getSingleNoteBook,
     updateNoteBook,
-    deleteProject
+    deleteNoteBook
 }
