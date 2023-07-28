@@ -1,0 +1,28 @@
+POST http://localhost:4500/project 
+Content-Type: application/json
+
+{
+    "Title": "Paragraph",
+    "Content":"This is A paragraph",
+    "CreatedAt":"24/7/2023",
+}
+
+###
+GET http://localhost:4500/project
+
+###
+GET http://localhost:4500/project/ce3f9c1b-28f7-4012-b968-90e5ccba475c
+### UPDATING PROJECT
+PUT http://localhost:4500/project/2d460c35-2ea7-4289-bc81-4204b53a4696
+Content-Type: application/json
+
+{
+    "project_name": "Build A bridge",
+    "description":"Build the nithi bridge",
+    "project_location":"Tharaka Nithi",
+    "startdate":"07/7/2024",
+    "enddate":"07/8/2025"
+}
+
+###
+DELETE http://localhost:4500/project/3dbd0bb0-a7e8-49e2-a4fe-1b18cbffc774
