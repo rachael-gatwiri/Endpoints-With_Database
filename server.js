@@ -4,7 +4,7 @@ const { projectrouter } = require('./Router/route');
 const routeExpress  = express()
 
 routeExpress.use(express.json()) 
-routeExpress.use('notebooks', NoteBookrouter) //import  the project router file
+routeExpress.use('notebooks', NoteBookrouter) 
 
 app.use((err, req, res, next)=>{   
     res.json({Error: err})  

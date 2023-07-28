@@ -1,5 +1,5 @@
 const {v4} = require('uuid');  
-const { NoteBookTable } = require('stored');
+const { NoteBookTable } = require('../Db/table');
 
 const notebooks = []; 
 
