@@ -109,8 +109,6 @@ const deleteNoteBook = async (req, res)=>{
     }
 }
 
-
-//Exports
 module.exports ={
     createNotebook,
     getAllNoteBook,

@@ -4,12 +4,12 @@ const { projectrouter } = require('./Router/route');
 const routeExpress  = express()
 
 routeExpress.use(express.json()) 
-routeExpress.use('/R', rou) //import  the project router file
+routeExpress.use('notebooks', NoteBookrouter) //import  the project router file
 
-app.use((err, req, res, next)=>{   //method used
-    res.json({Error: err})  //utilizing error and response method method
+app.use((err, req, res, next)=>{   
+    res.json({Error: err})  
 })
 
-app.listen(4500, ()=>{   
-    console.log('Server running on port 4500');
+app.listen(4000, ()=>{   
+    console.log('Server running on port 4000');
 })

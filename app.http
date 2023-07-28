@@ -17,11 +17,9 @@ PUT http://localhost:4500/project/2d460c35-2ea7-4289-bc81-4204b53a4696
 Content-Type: application/json
 
 {
-    "project_name": "Build A bridge",
-    "description":"Build the nithi bridge",
-    "project_location":"Tharaka Nithi",
-    "startdate":"07/7/2024",
-    "enddate":"07/8/2025"
+     "Title": "Heading",
+    "Content":"This is A heading",
+    "CreatedAt":"2o/9/2022",
 }
 
 ###

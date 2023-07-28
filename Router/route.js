@@ -1,12 +1,12 @@
 const {Router} = require('express'); 
-const { createProject, getProjects, getOneProject, updateProject, deleteProject } = require('../Controlls/controllers');
+const { createNotebook, getAllNoteBook, getSingleNoteBook, updateNoteBook, deleteNoteBook } = require('../Controlls/controllers');
 const NoteBookrouter = Router(); 
 
-projectrouter.post('/', createProject); 
-projectrouter.get('/', getProjects);
-projectrouter.get('/:id', getOneProject);
-projectrouter.put('/:id', updateProject);
-projectrouter.delete('/:id', deleteProject);
+projectrouter.post('/', createNotebook); 
+projectrouter.get('/', getAllNoteBook);
+projectrouter.get('/:id', getSingleNoteBook);
+projectrouter.put('/:id', updateNoteBook);
+projectrouter.delete('/:id', deleteNoteBook);
 
 
 module.exports = {  
