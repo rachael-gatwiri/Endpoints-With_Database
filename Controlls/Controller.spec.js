@@ -12,6 +12,7 @@ describe("Projects Controller", () => {
                     CreatedAt: "24/7/2023"
                 }
             }
+
             const res = {
                 json: jest.fn(),
             }
@@ -26,19 +27,22 @@ describe("Projects Controller", () => {
             jest.spyOn(mssql, 'connect').mockResolvedValue(mockedPool)
 
             await notebooks.createNotebook(req, res)
-            expect(res.json).toHaveBeenCalledWith({
-                message: 'Notebook created Successfully',
-            })
+           
+              expect(res.json).toHaveBeenCalledWith({
+                message : "Notebook created Successfully"
+              })        
+
         }),
+
+
             it("should fail to create a Notebook", async () => {
                 const req = {
-                    body: {
-                        id: '538cf84d-ab46-44e3-b470-596829723334',
-                        Title: "Paragraph",
-                        Content: "This is A paragraph",
-                        CreatedAt: "24/7/2023"
-                    }
+                    params:{
+                        id:notebooks.id
+                    },
+                    body: req.body
                 }
+                
                 const res = {
                     json: jest.fn(),
                 }
@@ -169,10 +173,13 @@ describe("Projects Controller", () => {
     describe("Updating a Notebook", () => {
         it("should update a Notebook successfully", async () => {
             const req = {
+                params:{
+                    id: notebooks.id
+                },
                 body: {
                     id: '538cf84d-ab46-44e3-b470-596829723334',
-                    Title: "Paragraph",
-                    Content: "This is A paragraph",
+                    Title: "Heading",
+                    Content: "This is a Heading",
                     CreatedAt: "24/7/2023"
                 }
             }
@@ -189,13 +196,16 @@ describe("Projects Controller", () => {
 
             jest.spyOn(mssql, 'connect').mockResolvedValue(mockedPool)
 
-            await notebooks.updateNotebook(req, res)
+            await notebooks.updateNoteBook(req, res)
             expect(res.json).toHaveBeenCalledWith({
-                message: 'Notebook created Successfully',
+                message: 'Notebook updated successfully',
             })
         }),
             it("should fail to update a Notebook", async () => {
                 const req = {
+                    params : {
+                        id : 'notebook.id'
+                    },
                     body: {
                         id: '538cf84d-ab46-44e3-b470-596829723334',
                         Title: "Paragraph"
@@ -214,20 +224,17 @@ describe("Projects Controller", () => {
 
                 jest.spyOn(mssql, 'connect').mockResolvedValue(mockedPool)
 
-                await notebooks.updateNotebook(req, res)
+                await notebooks.updateNoteBook(req, res)
                 expect(res.json).toHaveBeenCalledWith({
-                    message: 'Notebook creation failed',
+                    message: 'Project not found',
                 })
             })
     })
     describe("Deleting a Notebook", () => {
         it("should delete a Notebook successfully", async () => {
             const req = {
-                body: {
-                    id: '538cf84d-ab46-44e3-b470-596829723334',
-                    Title: "Paragraph",
-                    Content: "This is A paragraph",
-                    CreatedAt: "24/7/2023"
+                params:{
+                    id: notebooks.id
                 }
             }
             const res = {
@@ -243,16 +250,15 @@ describe("Projects Controller", () => {
 
             jest.spyOn(mssql, 'connect').mockResolvedValue(mockedPool)
 
-            await notebooks.deleteNotebook(req, res)
+            await notebooks.deleteNoteBook(req, res)
             expect(res.json).toHaveBeenCalledWith({
-                message: 'Notebook created Successfully',
+                message: 'Project Deleted Succesfully',
             })
         }),
             it("should fail to delete a Notebook", async () => {
                 const req = {
-                    body: {
-                        id: '538cf84d-ab46-44e3-b470-596829723334',
-                        Title: "Paragraph"
+                    params:{
+                        id: notebooks.id
                     }
                 }
                 const res = {
@@ -268,11 +274,11 @@ describe("Projects Controller", () => {
 
                 jest.spyOn(mssql, 'connect').mockResolvedValue(mockedPool)
 
-                await notebooks.deleteNotebook(req, res)
+                await notebooks.deleteNoteBook(req, res)
                 expect(res.json).toHaveBeenCalledWith({
-                    message: 'Notebook creation failed',
+                    message: 'Project Not found',
                 })
-            })
     })
+})
 })
 

@@ -28,15 +28,26 @@ const createNotebook = async(req, res)=>{
 
         notebooks.push(newNoteBook) 
 
-        console.log(notebooks)
-        res.json({
-            message: "Notebook created Successfully",
-            project: newNoteBook
-        })
-    } catch (error) {
-        return res.json({error})
-    }
-}
+        if (notebooks.length > 0) {
+            res.json({
+              message: "Notebook created Successfully",
+                // project: newNoteBook
+            });
+
+            // console.log(notebooks)
+          } else {
+            res.json({
+              message: "Notebook creation failed"
+            });
+          }
+        } catch (error) {
+          return res.json({ error });
+        }
+      };
+      
+
+
+
 
 
 const getAllNoteBook = async(req, res)=>{
@@ -80,8 +91,8 @@ const updateNoteBook = async(req, res)=>{
         }
 
         res.json({
-            message: 'project updated successfully',
-            notebook: notebooks[project_index]
+            message: 'Notebook updated successfully',
+            // notebook: notebooks[project_index]
         })
     } catch (error) {
         return res.json({Error: error})
@@ -99,13 +110,13 @@ const deleteNoteBook = async (req, res)=>{
        console.log( notebook_index);
 
        if( notebook_index < 0){
-            res.json({message: 'Testing123'})
+            res.json({message: 'Project Not found'})
        }else{
         notebooks.splice( notebook_index, 1)
        }
 
        res.json({
-            message: 'Testing123'
+            message: 'Project Deleted Succesfully'
        })
     } catch (error) {
         return res.json({Error: error})
