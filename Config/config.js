@@ -27,6 +27,6 @@ mssql.connect(sqlConfig).then(pool =>{
 
 // const pool = mssql.connect(sqlConfig)
 
-// module.exports = {
-//     sqlConfig
-// }
+module.exports = {
+    sqlConfig
+}

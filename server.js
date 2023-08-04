@@ -1,15 +1,15 @@
-const express = require ('express'); 
-const { projectrouter } = require('./Router/route');  
+const express = require('express');
+const NoteBookrouter = require('./Router/route');
 
-const routeExpress  = express()
+const app = express();
 
-routeExpress.use(express.json()) 
-routeExpress.use('notebooks', NoteBookrouter) 
+app.use(express.json());
+app.use('/notebooks', NoteBookrouter);
 
-app.use((err, req, res, next)=>{   
-    res.json({Error: err})  
-})
+app.use((err, req, res, next) => {
+    res.json({ Error: err });
+});
 
-app.listen(4000, ()=>{   
+app.listen(4000, () => {
     console.log('Server running on port 4000');
-})
+});

@@ -1,5 +1,8 @@
+
 const {v4} = require('uuid');  
 const { NoteBookTable } = require('../Db/table');
+
+
 
 const notebooks = []; 
 
@@ -27,7 +30,7 @@ const createNotebook = async(req, res)=>{
 
         console.log(notebooks)
         res.json({
-            message: "Project created Successfully",
+            message: "Notebook created Successfully",
             project: newNoteBook
         })
     } catch (error) {
@@ -70,7 +73,7 @@ const updateNoteBook = async(req, res)=>{
 
         const  notebook_index = notebooks.findIndex( notebook =>  notebook.id == id)
 
-        if( notebookt_index < 0){
+        if( notebook_index < 0){
             res.json('Project not found')
         }else{
             notebooks[ notebook_index] = new NoteBook(id, Title, Content, CreatedAt)
@@ -96,13 +99,13 @@ const deleteNoteBook = async (req, res)=>{
        console.log( notebook_index);
 
        if( notebook_index < 0){
-            res.json({message: 'Notebook not found'})
+            res.json({message: 'Testing123'})
        }else{
         notebooks.splice( notebook_index, 1)
        }
 
        res.json({
-            message: 'Notebook deleted successfully'
+            message: 'Testing123'
        })
     } catch (error) {
         return res.json({Error: error})
